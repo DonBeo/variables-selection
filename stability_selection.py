@@ -14,7 +14,7 @@ y = diabetes.target
 #data 2
 
 def stability_selection(X,y,alphas=False,sim=10,min_weight=0.2,plot_me=False):
-    
+    # this is a very beta version
     import numpy as np
     import sklearn as sk
     import sklearn.linear_model    
@@ -42,8 +42,9 @@ def stability_selection(X,y,alphas=False,sim=10,min_weight=0.2,plot_me=False):
 
         plot=pl.plot(np.log(alphas),prob.T)
         pl.show(plot)
-        
-    return prob,alphas
+    
+    max_prob=prob.max(axis=1)
+    return max_prob,prob,alphas
 
 
 p=200
